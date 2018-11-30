@@ -10,7 +10,7 @@ namespace DotNetARX
     public static class ArcTools
     {
         /// <summary>
-        /// 三点法创建圆弧
+        /// 三点法创建圆弧（起始点、终止点、圆弧上一点）
         /// </summary>
         /// <param name="arc">所要创建的圆弧</param>
         /// <param name="startPoint">起始点</param>
