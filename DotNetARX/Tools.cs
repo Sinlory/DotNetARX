@@ -11,7 +11,7 @@ using Autodesk.AutoCAD.EditorInput;
 
 namespace DotNetARX
 {
-    
+
     public static class Tools
     {
         /// <summary>
@@ -35,6 +35,19 @@ namespace DotNetARX
                 trans.Commit();//提交事务处理
             }
             return entId;
+        }
+
+        /// <summary>
+        /// 将实体添加到模型空间
+        /// </summary>
+        /// <param name="db">数据库对象</param>
+        /// <param name="ents">要添加的实体的数组</param>
+        public static void AddToModelSpace(this Database db, params Entity[] ents)
+        {
+            for (int i = 0; i < ents.Length; i++)
+            {
+                AddToModelSpace(db, ents[i]);
+            }
         }
 
         /// <summary>
