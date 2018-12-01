@@ -15,16 +15,18 @@ namespace DotNetARX
         [CommandMethod("CeShi")]
         public void CeShi()
         {
-            Point3d pt1 = new Point3d(20, 10, 0);
-            Point3d pt2 = new Point3d(10, 20, 0);
-            Point3d pt3 = new Point3d(20, 20, 0);
-            double result = pt1.AngleFromXAxis(pt2);
+            Point3d pt1 = new Point3d(100, 0, 0);
+            Point3d pt2 = new Point3d(0, 100, 0);
+            Point3d pt3 = new Point3d(0, 0, 0);
+            
+            
 
             Arc arc = new Arc();
-            arc.CreateArc(pt1, pt3, pt2);
+            arc.CreateArcOfCenter(pt1, pt3, pt2);
 
             Database db = HostApplicationServices.WorkingDatabase;
             db.AddToModelSpace(arc);
+            Tools.PrintMessage(arc.Radius.ToString());
         }
     }
 }

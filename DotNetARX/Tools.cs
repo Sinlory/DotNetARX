@@ -6,6 +6,7 @@ using Autodesk.AutoCAD.Runtime;
 using Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.Geometry;
+using Autodesk.AutoCAD.EditorInput;
 
 
 namespace DotNetARX
@@ -48,6 +49,16 @@ namespace DotNetARX
             Vector2d vector = new Vector2d(pt1.X - pt2.X, pt1.Y - pt2.Y);
             //返回该矢量与X轴正半轴的夹角
             return vector.Angle;
+        }
+
+        /// <summary>
+        /// 将字符串输出到命令行中。
+        /// </summary>
+        /// <param name="str">要输出的字符串</param>
+        public static void PrintMessage(string str)
+        {
+            Editor ed = Application.DocumentManager.MdiActiveDocument.Editor;
+            ed.WriteMessage(str);
         }
     }
 }
